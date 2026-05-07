@@ -1,0 +1,726 @@
+/* ── HEADER ──────────────────────────────────────── */
+.header {
+  padding: 140px 0 72px;
+  position: relative;
+}
+
+.title {
+  margin: 12px 0 24px;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--cyan);
+}
+
+.subtitle {
+  max-width: 560px;
+  opacity: 0.8;
+}
+
+/* ── PUBLICATION BLOCK ───────────────────────────── */
+.pubSection {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.pubBlock {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .pubBlock {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* Left */
+.pubLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.springerBrand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #3e5afa;
+  margin-bottom: 20px;
+}
+
+.pubTitle {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3.5vw, 40px);
+  font-weight: 400;
+  color: var(--white);
+  font-style: italic;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.doiLink {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--cyan);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  margin-bottom: 28px;
+  display: inline-block;
+  transition: opacity var(--t-fast);
+}
+
+.doiLink:hover {
+  opacity: 0.6;
+}
+
+.abstractBlock {
+  margin-bottom: 28px;
+}
+
+.abstractLabel {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 10px;
+}
+
+.abstractText {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--ink);
+  max-width: 560px;
+}
+
+.readBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--bg);
+  background: var(--cyan);
+  padding: 12px 24px;
+  border-radius: 2px;
+  text-decoration: none;
+  align-self: flex-start;
+  transition: all var(--t-fast);
+  letter-spacing: 0.04em;
+}
+
+.readBtn:hover {
+  background: #00d4bb;
+  box-shadow: 0 0 20px rgba(0, 240, 212, 0.3);
+}
+
+/* Paper thumbnail */
+.pubRight {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 128px;
+}
+
+.paperThumb {
+  display: block;
+  width: 250px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.paperImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.paperThumbInner {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+  transition: all var(--t-base);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+.paperThumb:hover .paperThumbInner {
+  border-color: rgba(0, 240, 212, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 240, 212, 0.12);
+  transform: translateY(-4px);
+}
+
+.paperCaption {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--ink-muted);
+  line-height: 1.5;
+  margin-top: 10px;
+  width: 250px;
+}
+
+.paperCaption span {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--cyan);
+  letter-spacing: 0.05em;
+}
+
+.paperHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.paperHeaderLine {
+  height: 6px;
+  background: var(--cyan);
+  border-radius: 1px;
+  opacity: 0.5;
+  width: 80%;
+}
+
+.paperLines {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+
+.paperLine {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 1px;
+}
+
+.paperFooter {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+}
+
+.springerTag {
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ff6600;
+  border: 1px solid rgba(255, 102, 0, 0.3);
+  padding: 2px 7px;
+  border-radius: 2px;
+}
+
+.paperOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--cyan);
+  opacity: 0;
+  transition: opacity var(--t-fast);
+  font-weight: 300;
+}
+
+.paperThumb:hover .paperOverlay {
+  opacity: 1;
+}
+
+/* ── RESEARCH NODE ───────────────────────────────── */
+.nodeSection {
+  position: relative;
+}
+
+.nodeGrid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .nodeGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Cinematic image */
+.nodeImg {
+  position: relative;
+  aspect-ratio: 4/3;
+  border-radius: 4px;
+  overflow: hidden;
+  background: radial-gradient(ellipse 80% 80% at 50% 60%, rgba(0, 240, 212, 0.06) 0%, var(--bg-raised) 70%);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nodeImgGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 50% 60%, rgba(0, 240, 212, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.nodeImgInner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nodeImgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, var(--bg) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.avatarSvg {
+  width: 75%;
+  max-width: 340px;
+  opacity: 0.85;
+  animation: avatarFloat 4s ease-in-out infinite;
+}
+
+@keyframes avatarFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Node card */
+.nodeCard {
+  padding: 36px;
+  border-left: 2px solid var(--cyan);
+}
+
+.nodeTitle {
+  margin-bottom: 20px;
+}
+
+.nodeSpecs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4px;
+}
+
+.nodeSpec {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.nodeSpecLabel {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.nodeSpecVal {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--cyan);
+}
+
+.nodeTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 20px;
+}
+
+.nodeTag {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: var(--ink-muted);
+  border: 1px solid var(--border);
+  padding: 3px 10px;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+  transition: all var(--t-fast);
+}
+
+.nodeTag:hover {
+  border-color: rgba(0, 240, 212, 0.4);
+  color: var(--cyan);
+}
+
+/* ── TECHNICAL MATRICES ──────────────────────────── */
+.matricesSection {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.matricesTitle {
+  margin-bottom: 32px;
+}
+
+.matricesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .matricesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 420px) {
+  .matricesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.matrixChip {
+  font-family: var(--font-body);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--ink-muted);
+  border: 1px solid var(--border);
+  padding: 10px 16px;
+  border-radius: 2px;
+  cursor: default;
+  user-select: none;
+}
+
+/* ── MANIFESTO ───────────────────────────────────── */
+.manifestoSection {
+  background: radial-gradient(ellipse 60% 60% at 50% 100%, rgba(0, 240, 212, 0.04) 0%, transparent 70%);
+}
+
+.manifesto {
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── COLIVRI DIGITAL TWIN ────────────────────────── */
+.twinSection {
+  border-top: 1px solid var(--border);
+}
+
+.twinHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 32px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.twinTitle {
+  margin: 4px 0 0;
+}
+
+.twinLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+.twinGithub {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--cyan);
+  text-decoration: none;
+  border: 1px solid rgba(0, 240, 212, 0.3);
+  padding: 8px 16px;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  transition: all var(--t-fast);
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+.twinGithub:hover {
+  background: rgba(0, 240, 212, 0.06);
+  border-color: var(--cyan);
+}
+
+.twinGrid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 2px;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .twinGrid { grid-template-columns: 1fr; }
+}
+
+.twinCard {
+  padding: 28px 32px;
+  height: 100%;
+}
+
+.twinList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.twinListItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.twinDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--cyan);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+.twinRight {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  height: 100%;
+}
+
+.twinTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.twinTag {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: var(--ink-muted);
+  border: 1px solid var(--border);
+  padding: 3px 10px;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+  cursor: default;
+  user-select: none;
+}
+
+.twinTeam {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.twinMember {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--ink-muted);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 2px;
+  letter-spacing: 0.02em;
+}
+
+.twinMemberHighlight {
+  color: var(--cyan);
+  border-color: rgba(0, 240, 212, 0.35);
+  background: rgba(0, 240, 212, 0.04);
+}
+
+/* Capabilities grid */
+.twinCapGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Full-width capabilities card below grid */
+.twinCapCard {
+  padding: 28px 32px;
+  margin-top: 2px;
+}
+
+.twinCapRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.twinCap {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.twinCapIcon {
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.twinCapLabel {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.02em;
+}
+
+.twinCapDesc {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--ink-muted);
+  margin-top: 2px;
+  line-height: 1.5;
+}
+
+/* Project image */
+.twinImageWrap {
+  margin-top: 32px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.twinImage {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+.twinFeatureCard {
+  padding: 28px 32px;
+  margin-bottom: 2px;
+  border-left: 2px solid var(--cyan);
+  position: relative;
+}
+
+.twinFeatureBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 12px;
+}
+
+.twinFeatureDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 8px var(--cyan);
+  animation: pulse 2s ease infinite;
+}
+
+.twinFeatureContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.twinFeatureTitle {
+  margin: 0;
+}
+
+.twinFeatureTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+
+
+/* Old unused classes kept for safety */
+.prog {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.progTrack {
+  flex: 1;
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+}
+
+.progFill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pubMeta {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.grid,
+.card,
+.cardTop,
+.cardBody,
+.cardHeader,
+.cardTitle,
+.cardTags,
+.cardTag,
+.progSection {
+  display: none;
+}

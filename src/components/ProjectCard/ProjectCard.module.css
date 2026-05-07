@@ -1,0 +1,150 @@
+.card {
+  position: relative;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+  transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+}
+
+.card:hover {
+  border-color: rgba(var(--accent-rgb, 0, 240, 255), 0.2);
+}
+
+.cardFeatured {
+  padding: 40px;
+}
+
+/* Accent top border */
+.accentLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--accent, var(--primary-container)),
+    transparent
+  );
+  opacity: 0.4;
+  transition: opacity 300ms ease;
+}
+
+.card:hover .accentLine {
+  opacity: 1;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.index {
+  color: var(--on-surface-variant);
+  font-size: 10px;
+  opacity: 0.5;
+}
+
+.year {
+  color: var(--on-surface-variant);
+  font-size: 11px;
+  opacity: 0.6;
+}
+
+/* Category */
+.category {
+  color: var(--accent, var(--primary-container));
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  opacity: 0.8;
+}
+
+/* Title */
+.title {
+  color: var(--on-surface);
+  margin: 0;
+}
+
+/* Description */
+.description {
+  color: var(--on-surface-variant);
+  font-size: 14px;
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  padding: 3px 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  color: var(--on-surface-variant);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+}
+
+/* Metrics */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metricValue {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent, var(--primary-container));
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.metricLabel {
+  color: var(--on-surface-variant);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+}
+
+/* Footer */
+.footer {
+  padding-top: 8px;
+}
+
+.viewBtn {
+  font-size: 12px !important;
+  padding: 8px 16px !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card { padding: 24px; }
+  .cardFeatured { padding: 28px; }
+  .metrics { grid-template-columns: repeat(2, 1fr); }
+}

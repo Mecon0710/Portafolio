@@ -1,0 +1,2 @@
+.wrapper { width: 100%; display: flex; justify-content: center; }
+.svg { width: 100%; max-width: 400px; aspect-ratio: 1; overflow: visible; }

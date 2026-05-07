@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap');
+
+/* ============================================================
+   DESIGN SYSTEM — IMMERSIVE PORTFOLIO EXPERIENCE OS
+   Midnight Cyber · Deep Space Research Station
+   ============================================================ */
+
+:root {
+  /* Core Palette */
+  --bg:            #0a0f0e;
+  --bg-alt:        #0d1512;
+  --bg-surface:    #111918;
+  --bg-raised:     #162220;
+  --bg-border:     #1e2d2a;
+
+  --ink:           #e8ede9;
+  --ink-muted:     #7a9690;
+  --ink-faint:     #3d524e;
+
+  --cyan:          #00f0d4;
+  --cyan-dim:      #00c4ac;
+  --cyan-glow:     rgba(0, 240, 212, 0.12);
+  --cyan-glow-sm:  rgba(0, 240, 212, 0.06);
+
+  --white:         #f0f4f3;
+  --border:        rgba(255, 255, 255, 0.06);
+  --border-accent: rgba(0, 240, 212, 0.15);
+
+  /* Typography */
+  --font-serif:  'DM Serif Display', Georgia, serif;
+  --font-sans:   'Space Grotesk', sans-serif;
+  --font-body:   'Inter', sans-serif;
+
+  /* Spacing */
+  --nav-h:       72px;
+  --page-x:      80px;
+  --gap:         24px;
+
+  /* Transitions */
+  --ease:        cubic-bezier(0.4, 0, 0.2, 1);
+  --t-fast:      150ms;
+  --t-base:      300ms;
+  --t-slow:      600ms;
+}
+
+/* ============================================================
+   RESET
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Subtle scanline */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0, transparent 3px,
+    rgba(255,255,255,0.008) 3px, rgba(255,255,255,0.008) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; height: auto; display: block; }
+button { cursor: pointer; border: none; background: none; font: inherit; }
+
+::selection { background: rgba(0,240,212,0.2); color: var(--cyan); }
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--cyan-dim); border-radius: 2px; }
+*:focus-visible { outline: 1px solid var(--cyan); outline-offset: 3px; }
+
+/* ============================================================
+   TYPOGRAPHY UTILITIES
+   ============================================================ */
+
+.t-serif  { font-family: var(--font-serif); }
+.t-sans   { font-family: var(--font-sans); }
+.t-body   { font-family: var(--font-body); }
+
+.t-display {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 5.5vw, 80px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--white);
+}
+
+.t-h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--white);
+}
+
+.t-h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 3vw, 40px);
+  line-height: 1.2;
+  color: var(--white);
+}
+
+.t-h3 {
+  font-family: var(--font-sans);
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--white);
+}
+
+.t-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+.t-body-lg {
+  font-family: var(--font-body);
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.75;
+  color: var(--ink-muted);
+}
+
+.t-body {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink-muted);
+}
+
+.t-mono {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 var(--page-x);
+}
+
+.section      { padding: 120px 0; }
+.section-sm   { padding: 80px 0; }
+.section-xs   { padding: 48px 0; }
+
+@media (max-width: 1024px) {
+  :root { --page-x: 48px; }
+}
+@media (max-width: 768px) {
+  :root { --page-x: 24px; }
+  .section    { padding: 80px 0; }
+  .section-sm { padding: 56px 0; }
+}
+
+/* Dividers */
+.rule {
+  height: 1px;
+  background: var(--border);
+  border: none;
+}
+
+.rule-cyan {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--cyan), transparent);
+  opacity: 0.2;
+  border: none;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 24px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  border-radius: 2px;
+  transition: all var(--t-base) var(--ease);
+  white-space: nowrap;
+}
+
+.btn-solid {
+  background: var(--cyan);
+  color: #000;
+}
+.btn-solid:hover {
+  background: #fff;
+  box-shadow: 0 0 24px rgba(0,240,212,0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--border);
+}
+.btn-outline:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--cyan);
+  border: 1px solid var(--border-accent);
+}
+.btn-ghost:hover {
+  background: var(--cyan-glow);
+  border-color: var(--cyan);
+}
+
+/* ============================================================
+   CHIPS / BADGES
+   ============================================================ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.badge-cyan {
+  background: rgba(0,240,212,0.08);
+  color: var(--cyan);
+  border: 1px solid rgba(0,240,212,0.2);
+}
+
+.badge-amber {
+  background: rgba(255,200,80,0.08);
+  color: #ffc850;
+  border: 1px solid rgba(255,200,80,0.2);
+}
+
+.badge-purple {
+  background: rgba(180,80,255,0.08);
+  color: #c06cff;
+  border: 1px solid rgba(180,80,255,0.2);
+}
+
+.pulse {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50%      { opacity:0.4; transform:scale(0.75); }
+}
+
+/* ============================================================
+   CARD SURFACE
+   ============================================================ */
+
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  transition: border-color var(--t-base) var(--ease), transform var(--t-base) var(--ease);
+}
+
+.card:hover {
+  border-color: var(--border-accent);
+}
+
+.card-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes glow-line {
+  0%,100% { opacity: 0.15; }
+  50%      { opacity: 0.5; }
+}
+@keyframes drift {
+  0%,100% { transform: translateY(0) translateX(0); }
+  33%     { transform: translateY(-6px) translateX(3px); }
+  66%     { transform: translateY(4px) translateX(-2px); }
+}
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes draw {
+  from { stroke-dashoffset: 1000; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* Delay utilities */
+.d1 { animation-delay: 100ms; }
+.d2 { animation-delay: 200ms; }
+.d3 { animation-delay: 300ms; }
+.d4 { animation-delay: 400ms; }
+.d5 { animation-delay: 500ms; }
+.d6 { animation-delay: 600ms; }
