@@ -13,55 +13,7 @@
   align-items: start;
 }
 
-/* Form */
-.form { padding: 40px; display: flex; flex-direction: column; gap: 20px; }
-
-.row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-
-.field { display: flex; flex-direction: column; gap: 7px; }
-.field label { font-size: 9px; letter-spacing: 0.14em; opacity: 0.6; }
-
-.input, .select, .textarea {
-  background: rgba(255,255,255,0.02);
-  border: none;
-  border-bottom: 1px solid var(--border);
-  color: var(--ink);
-  font-family: var(--font-body);
-  font-size: 14px;
-  padding: 10px 0;
-  outline: none;
-  width: 100%;
-  transition: border-color var(--t-fast);
-  border-radius: 0;
-}
-.input:focus, .select:focus, .textarea:focus {
-  border-bottom-color: var(--cyan);
-  box-shadow: 0 1px 0 0 var(--cyan);
-}
-.input::placeholder, .textarea::placeholder { color: var(--ink-faint); }
-.select { appearance: none; cursor: pointer; }
-.select option { background: var(--bg-surface); }
-.textarea { resize: vertical; min-height: 110px; line-height: 1.6; }
-.submit { width: 100%; justify-content: center; }
-.submit:disabled { opacity: 0.6; cursor: not-allowed; }
-
-/* Success */
-.success {
-  padding: 48px;
-  display: flex; flex-direction: column; align-items: center;
-  text-align: center; gap: 16px;
-}
-.successIcon {
-  width: 64px; height: 64px; border-radius: 50%;
-  background: rgba(0,240,212,0.08);
-  border: 1px solid rgba(0,240,212,0.2);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 24px; color: var(--cyan);
-}
-
-/* Right */
-.rightCol { display: flex; flex-direction: column; gap: 32px; }
-
+/* Channels */
 .channels { display: flex; flex-direction: column; gap: 2px; }
 
 .channel {
@@ -94,6 +46,9 @@
 }
 .channel:hover .channelArrow { color: var(--accent, var(--cyan)); transform: translateX(3px); }
 
+/* Right column */
+.rightCol { display: flex; flex-direction: column; gap: 32px; }
+
 /* Availability */
 .avail { padding: 28px; display: flex; flex-direction: column; gap: 10px; }
 .availHead { display: flex; align-items: center; }
@@ -103,6 +58,4 @@
 @media (max-width: 1024px) { .grid { grid-template-columns: 1fr; gap: 48px; } }
 @media (max-width: 768px) {
   .header { padding: 120px 0 56px; }
-  .form { padding: 24px; }
-  .row { grid-template-columns: 1fr; }
 }
