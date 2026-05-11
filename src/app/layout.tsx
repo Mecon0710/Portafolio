@@ -11,6 +11,20 @@ export const metadata: Metadata = {
     title: 'Melissa Lizeth Contreras Rojas — Software Engineer & XR Researcher',
     description: 'Software Engineer · Frontend & Full Stack · Published Author at Springer Nature',
     type: 'website',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Melissa Contreras — Software Engineer Portfolio',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Melissa Lizeth Contreras Rojas — Software Engineer & XR Researcher',
+    description: 'Software Engineer · Frontend & Full Stack · Published Author at Springer Nature',
+    images: ['/og-image.png'],
   },
 }
 
