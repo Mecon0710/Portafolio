@@ -3,17 +3,19 @@ import './globals.css'
 import { LanguageProvider } from '@/contexts/LanguageContext'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://meli-portfolio.netlify.app'),
   title: 'Melissa Lizeth Contreras Rojas — Software Engineer & XR Researcher',
   description: 'Software Engineer with experience in frontend and full-stack development. Published author in Springer Nature. Specialized in React, Flutter, Golang and Virtual Reality.',
   keywords: ['Software Engineer', 'Frontend Developer', 'Flutter', 'Golang', 'XR Research', 'HCI', 'Virtual Reality', 'Springer'],
   authors: [{ name: 'Melissa Lizeth Contreras Rojas' }],
   openGraph: {
     title: 'Melissa Lizeth Contreras Rojas — Software Engineer & XR Researcher',
-    description: 'Software Engineer · Frontend & Full Stack · Published Author at Springer Nature',
+    description: 'Software Engineer with experience in frontend and full-stack development. Published author in Springer Nature. Specialized in React, Flutter, Golang and Virtual Reality.',
     type: 'website',
+    url: 'https://meli-portfolio.netlify.app',
     images: [
       {
-        url: '/og-image.png',
+        url: 'https://meli-portfolio.netlify.app/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Melissa Contreras — Software Engineer Portfolio',
@@ -23,8 +25,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Melissa Lizeth Contreras Rojas — Software Engineer & XR Researcher',
-    description: 'Software Engineer · Frontend & Full Stack · Published Author at Springer Nature',
-    images: ['/og-image.png'],
+    description: 'Software Engineer with experience in frontend and full-stack development. Published author in Springer Nature. Specialized in React, Flutter, Golang and Virtual Reality.',
+    images: ['https://meli-portfolio.netlify.app/og-image.png'],
   },
 }
 
